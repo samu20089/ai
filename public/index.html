@@ -896,6 +896,36 @@
   </div>
 </div>
 
+<!-- ============== API KEY MODAL ============== -->
+<div class="modal" id="keyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="keyModalTitle">
+  <div class="modal__overlay" data-close></div>
+  <div class="modal__panel modal__panel--key">
+    <button class="modal__close" aria-label="Chiudi" data-close>
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="key-icon">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="24" cy="40" r="14" fill="none" stroke="currentColor" stroke-width="3"/>
+        <path d="M32 32 L 56 8 M 50 14 L 56 20 M 44 20 L 49 25" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <h3 id="keyModalTitle">Attiva Coach AI</h3>
+    <p>Per chattare incolla la tua chiave Anthropic (resta nel tuo browser, non viene salvata sul server).</p>
+    <div class="key-row">
+      <input type="password" id="keyInput" placeholder="sk-ant-..." autocomplete="off" spellcheck="false"/>
+      <button class="key-toggle" id="keyToggle" type="button" aria-label="Mostra/nascondi">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <p class="key-help">Crea una API key gratis su <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>. Si paga solo per quello che usi (centesimi).</p>
+    <div class="modal__actions">
+      <button class="btn btn--primary btn--magnetic" id="keySave">Attiva e chatta</button>
+      <button class="btn btn--ghost" data-close>Annulla</button>
+    </div>
+    <button class="key-forget" id="keyForget" hidden>Dimentica la mia chiave</button>
+  </div>
+</div>
+
 <!-- ============== TOASTS ============== -->
 <div class="toasts" id="toasts" aria-live="polite" aria-atomic="true"></div>
 
@@ -928,6 +958,9 @@
         <div class="chat__head-name">Coach AI <span class="chat__head-tag">APEX</span></div>
         <div class="chat__head-status" id="chatStatus">online · risponde in tempo reale</div>
       </div>
+      <button class="chat__head-btn" id="chatKey" title="Imposta API key" aria-label="Imposta API key">
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><circle cx="9" cy="14" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 12 L 21 3 M 18 6 L 21 9 M 15 9 L 17 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      </button>
       <button class="chat__head-btn" id="chatClear" title="Nuova conversazione" aria-label="Nuova conversazione">
         <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>

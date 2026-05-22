@@ -5,6 +5,7 @@
    ========================================================= */
 
 const STORAGE_KEY = 'apex.chat.history.v1';
+const API_KEY = 'apex.chat.apikey.v1';
 const MAX_HISTORY = 20;
 
 const els = {
@@ -13,17 +14,25 @@ const els = {
   panel:       document.getElementById('chatPanel'),
   close:       document.getElementById('chatClose'),
   clear:       document.getElementById('chatClear'),
+  keyBtn:      document.getElementById('chatKey'),
   msgs:        document.getElementById('chatMsgs'),
   form:        document.getElementById('chatForm'),
   input:       document.getElementById('chatInput'),
   send:        document.getElementById('chatSend'),
   status:      document.getElementById('chatStatus'),
   suggestions: document.getElementById('chatSuggestions'),
+  // key modal
+  keyModal:    document.getElementById('keyModal'),
+  keyInput:    document.getElementById('keyInput'),
+  keyToggle:   document.getElementById('keyToggle'),
+  keySave:     document.getElementById('keySave'),
+  keyForget:   document.getElementById('keyForget'),
 };
 
 let history = loadHistory();
 let isStreaming = false;
 let aborter = null;
+let serverHasKey = false;
 
 // ---------- helpers ----------
 function loadHistory() {
@@ -186,9 +195,13 @@ async function send(text) {
   aborter = new AbortController();
 
   try {
+    const headers = { 'Content-Type': 'application/json' };
+    const userKey = getKey();
+    if (userKey && !serverHasKey) headers['X-API-Key'] = userKey;
+
     const res = await fetch('/api/chat', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({ messages: history.slice(-MAX_HISTORY) }),
       signal: aborter.signal,
     });
@@ -198,10 +211,13 @@ async function send(text) {
       let msg = `Errore ${res.status}`;
       try { msg = JSON.parse(errText).error || msg; } catch {}
       typing.remove();
-      appendMessage('assistant',
-        `⚠ **${msg}**
-
-Verifica che \`ANTHROPIC_API_KEY\` sia configurato in \`.env\` e che il server sia stato riavviato.`);
+      if (res.status === 401) {
+        appendMessage('assistant',
+          `🔑 Per chattare con me serve una API key Anthropic.\n\nClicca l'icona 🔑 qui in alto e incollala — la salvo solo nel tuo browser.`);
+        openKeyModal();
+      } else {
+        appendMessage('assistant', `⚠ **${msg}**`);
+      }
       setStreaming(false);
       return;
     }
@@ -275,6 +291,39 @@ function autoResize() {
   els.input.style.height = Math.min(140, els.input.scrollHeight) + 'px';
 }
 
+// ---------- API KEY MODAL ----------
+function getKey() {
+  try { return localStorage.getItem(API_KEY) || ''; } catch { return ''; }
+}
+function setKey(v) {
+  try {
+    if (v) localStorage.setItem(API_KEY, v);
+    else   localStorage.removeItem(API_KEY);
+  } catch {}
+}
+function openKeyModal() {
+  if (!els.keyModal) return;
+  els.keyInput.value = getKey();
+  els.keyForget.hidden = !getKey();
+  els.keyModal.classList.add('is-open');
+  els.keyModal.setAttribute('aria-hidden', 'false');
+  setTimeout(() => els.keyInput.focus(), 200);
+}
+function closeKeyModal() {
+  els.keyModal.classList.remove('is-open');
+  els.keyModal.setAttribute('aria-hidden', 'true');
+}
+function refreshKeyStatus() {
+  const hasUser = !!getKey();
+  if (serverHasKey || hasUser) {
+    els.status.textContent = serverHasKey
+      ? 'online · risponde in tempo reale'
+      : 'pronto · usa la tua API key';
+  } else {
+    els.status.innerHTML = '🔑 imposta una API key per chattare';
+  }
+}
+
 // ---------- wire up ----------
 function init() {
   if (!els.root) return;
@@ -284,6 +333,34 @@ function init() {
 
   els.fab.addEventListener('click', toggleChat);
   els.close.addEventListener('click', closeChat);
+
+  els.keyBtn?.addEventListener('click', openKeyModal);
+  els.keyModal?.querySelectorAll('[data-close]').forEach(b => {
+    b.addEventListener('click', closeKeyModal);
+  });
+  els.keyToggle?.addEventListener('click', () => {
+    els.keyInput.type = els.keyInput.type === 'password' ? 'text' : 'password';
+  });
+  els.keySave?.addEventListener('click', () => {
+    const v = els.keyInput.value.trim();
+    if (!v || !/^sk-ant-/.test(v)) {
+      els.keyInput.style.borderColor = 'var(--danger)';
+      els.keyInput.focus();
+      setTimeout(() => { els.keyInput.style.borderColor = ''; }, 1200);
+      return;
+    }
+    setKey(v);
+    closeKeyModal();
+    refreshKeyStatus();
+    window.apex?.toast?.('🔑 Chiave salvata. Sono pronto.', { variant: 'success' });
+  });
+  els.keyForget?.addEventListener('click', () => {
+    setKey('');
+    els.keyInput.value = '';
+    els.keyForget.hidden = true;
+    refreshKeyStatus();
+    window.apex?.toast?.('Chiave dimenticata', {});
+  });
 
   els.clear.addEventListener('click', () => {
     if (history.length === 0) return;
@@ -319,12 +396,11 @@ function init() {
     if (e.key === 'Escape' && isOpen) closeChat();
   });
 
-  // Health check non bloccante
+  // Health check non bloccante: aggiorna stato in base a key server/client
   fetch('/api/health').then(r => r.json()).then((data) => {
-    if (!data.aiReady) {
-      els.status.textContent = '⚠ Coach AI non configurato (manca API key)';
-    }
-  }).catch(() => {});
+    serverHasKey = !!data.aiReady;
+    refreshKeyStatus();
+  }).catch(() => { refreshKeyStatus(); });
 }
 
 if (document.readyState === 'loading') {

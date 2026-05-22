@@ -46,22 +46,33 @@ const SYSTEM_PROMPT = `Sei "Coach AI" di APEX — Personal Training Studio, l'as
 - Chiudi spesso con una micro-azione: "Vuoi che ti suggerisca uno split?" / "Posso prenotarti una call gratuita."
 - Se l'utente vuole prenotare: indirizzalo al form "Prenota" del sito o digli di scrivere "prenota" e il giorno preferito.`;
 
-const client = process.env.ANTHROPIC_API_KEY
+const serverClient = process.env.ANTHROPIC_API_KEY
   ? new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
   : null;
+
+function buildClient(req) {
+  if (serverClient) return serverClient;
+  const userKey = req.get('X-API-Key') || req.body?.apiKey;
+  if (userKey && /^sk-ant-/.test(userKey)) {
+    return new Anthropic({ apiKey: userKey });
+  }
+  return null;
+}
 
 app.get('/api/health', (_req, res) => {
   res.json({
     ok: true,
-    aiReady: !!client,
+    aiReady: !!serverClient,
+    needsClientKey: !serverClient,
     model: 'claude-haiku-4-5-20251001',
   });
 });
 
 app.post('/api/chat', async (req, res) => {
+  const client = buildClient(req);
   if (!client) {
-    return res.status(503).json({
-      error: 'AI non configurata. Aggiungi ANTHROPIC_API_KEY al file .env e riavvia.',
+    return res.status(401).json({
+      error: 'Serve una API key. Clicca l\'icona 🔑 nella chat e incollala.',
     });
   }
 
@@ -136,7 +147,9 @@ app.get('*', (_req, res) => {
 });
 
 app.listen(PORT, () => {
-  const aiState = client ? 'attiva' : 'NON configurata (manca ANTHROPIC_API_KEY)';
+  const aiState = serverClient
+    ? 'attiva (server key)'
+    : 'in attesa di API key dal browser';
   console.log(`\n  APEX server pronto su http://localhost:${PORT}`);
   console.log(`  Coach AI: ${aiState}\n`);
 });
