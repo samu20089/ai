@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0b0d" />
+<meta name="description" content="APEX — Personal Training Studio. Marco Conti. Forza funzionale, ricomposizione corporea, preparazione atletica. Milano e online." />
+<title>APEX — Personal Training · Marco Conti</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 L29 28 L3 28 Z' fill='%23d8ff36' stroke='%230a0b0d' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- ============== LOADER ============== -->
+<div class="loader" id="loader" aria-hidden="true">
+  <svg class="loader__logo" viewBox="0 0 200 80" aria-hidden="true">
+    <defs>
+      <clipPath id="loaderClip">
+        <rect id="loaderClipRect" x="0" y="0" width="0" height="80"/>
+      </clipPath>
+    </defs>
+    <text x="100" y="62" text-anchor="middle" class="loader__text loader__text--outline">APEX</text>
+    <text x="100" y="62" text-anchor="middle" class="loader__text loader__text--fill" clip-path="url(#loaderClip)">APEX</text>
+  </svg>
+  <div class="loader__bar"><span></span></div>
+  <div class="loader__caption">forging strength</div>
+</div>
+
+<!-- ============== AMBIENT SHAPES ============== -->
+<div class="ambient" aria-hidden="true">
+  <div class="ambient__blob ambient__blob--1"></div>
+  <div class="ambient__blob ambient__blob--2"></div>
+  <div class="ambient__grid"></div>
+</div>
+
+<!-- ============== NAV ============== -->
+<header class="nav" id="nav">
+  <a href="#home" class="nav__brand" aria-label="APEX home">
+    <svg viewBox="0 0 40 40" class="nav__mark" aria-hidden="true">
+      <path d="M20 5 L36 34 L4 34 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M20 16 L28 32 L12 32 Z" fill="currentColor"/>
+    </svg>
+    <span>APEX</span>
+  </a>
+
+  <nav class="nav__links" aria-label="Principale">
+    <a href="#about" data-nav>Studio</a>
+    <a href="#method" data-nav>Metodo</a>
+    <a href="#services" data-nav>Servizi</a>
+    <a href="#programs" data-nav>Programmi</a>
+    <a href="#results" data-nav>Risultati</a>
+    <a href="#faq" data-nav>FAQ</a>
+  </nav>
+
+  <div class="nav__actions">
+    <button class="btn btn--ghost btn--icon" id="themeToggle" aria-label="Cambia tema" title="Cambia tema">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="m4.9 4.9 2.1 2.1"/><path d="m17 17 2.1 2.1"/><path d="m4.9 19.1 2.1-2.1"/><path d="m17 7 2.1-2.1"/></g></svg>
+    </button>
+    <a href="#booking" class="btn btn--primary btn--magnetic" data-nav>
+      <span>Prenota call</span>
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <button class="btn btn--ghost btn--icon nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============== MOBILE DRAWER ============== -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <nav class="drawer__links">
+    <a href="#about" data-nav>Studio</a>
+    <a href="#method" data-nav>Metodo</a>
+    <a href="#services" data-nav>Servizi</a>
+    <a href="#programs" data-nav>Programmi</a>
+    <a href="#results" data-nav>Risultati</a>
+    <a href="#faq" data-nav>FAQ</a>
+    <a href="#booking" data-nav class="drawer__cta">Prenota call →</a>
+  </nav>
+</div>
+
+<main>
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="home">
+  <div class="hero__inner">
+
+    <div class="hero__meta reveal" data-reveal>
+      <span class="dot dot--pulse"></span>
+      <span>Studio aperto · Milano, Via Tortona 27</span>
+    </div>
+
+    <h1 class="hero__title">
+      <span class="line" aria-label="Forgia">
+        <span class="word" data-text="FORGIA">FORGIA</span>
+      </span>
+      <span class="line" aria-label="il tuo corpo">
+        <span class="word italic" data-text="il&nbsp;tuo">il&nbsp;tuo</span>
+        <span class="word" data-text="CORPO">CORPO</span>
+      </span>
+      <span class="line" aria-label="domina la tua mente">
+        <span class="word" data-text="DOMINA">DOMINA</span>
+        <span class="word italic" data-text="la&nbsp;tua">la&nbsp;tua</span>
+        <span class="word" data-text="MENTE">MENTE</span>
+      </span>
+    </h1>
+
+    <p class="hero__lead reveal" data-reveal data-delay="500">
+      Personal training 1:1 con <strong>Marco Conti</strong>. Programmi su misura
+      di forza funzionale, ricomposizione corporea e preparazione atletica.
+      In studio a Milano o ovunque sei, online.
+    </p>
+
+    <div class="hero__cta reveal" data-reveal data-delay="700">
+      <a href="#booking" class="btn btn--primary btn--lg btn--magnetic" data-nav>
+        <span>Inizia il percorso</span>
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="btn btn--ghost btn--lg" id="playReel">
+        <span class="play-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        </span>
+        <span>Guarda il metodo</span>
+      </button>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <svg class="hero__shape" viewBox="0 0 600 600">
+        <defs>
+          <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="var(--accent)"/>
+            <stop offset="100%" stop-color="var(--accent-2)"/>
+          </linearGradient>
+        </defs>
+        <path class="hero__blob" fill="url(#heroGrad)" d="M421.4,322.8Q396,395.6,326.5,431.2Q257,466.8,194.8,427.3Q132.6,387.8,116.3,308.4Q100,229,156.5,170Q213,111,287.5,121.2Q362,131.4,406.5,180.7Q451,230,421.4,322.8Z"/>
+      </svg>
+      <svg class="hero__ring" viewBox="0 0 400 400">
+        <circle cx="200" cy="200" r="180" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6" opacity="0.35"/>
+      </svg>
+      <svg class="hero__ring hero__ring--2" viewBox="0 0 400 400">
+        <circle cx="200" cy="200" r="140" fill="none" stroke="currentColor" stroke-width="1" opacity="0.18"/>
+      </svg>
+
+      <div class="hero__badge hero__badge--bpm">
+        <svg viewBox="0 0 60 24" class="bpm" aria-hidden="true">
+          <polyline points="0,12 12,12 16,4 22,20 28,8 34,16 40,12 60,12"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div class="hero__badge-num" data-counter="148">0</div>
+          <div class="hero__badge-lab">bpm zona 2</div>
+        </div>
+      </div>
+
+      <div class="hero__badge hero__badge--str">
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M6 4h2v6h8V4h2v16h-2v-6H8v6H6z" fill="currentColor"/></svg>
+        <div>
+          <div class="hero__badge-num"><span data-counter="142">0</span>kg</div>
+          <div class="hero__badge-lab">stacco</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__marquee" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee__track">
+        <span>FORZA</span><span class="dot-sep">●</span>
+        <span>MOBILITÀ</span><span class="dot-sep">●</span>
+        <span>NUTRIZIONE</span><span class="dot-sep">●</span>
+        <span>POTENZA</span><span class="dot-sep">●</span>
+        <span>RESILIENZA</span><span class="dot-sep">●</span>
+        <span>DISCIPLINA</span><span class="dot-sep">●</span>
+        <span>FORZA</span><span class="dot-sep">●</span>
+        <span>MOBILITÀ</span><span class="dot-sep">●</span>
+        <span>NUTRIZIONE</span><span class="dot-sep">●</span>
+        <span>POTENZA</span><span class="dot-sep">●</span>
+        <span>RESILIENZA</span><span class="dot-sep">●</span>
+        <span>DISCIPLINA</span><span class="dot-sep">●</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STATS ============== -->
+<section class="stats" aria-label="Numeri">
+  <div class="stats__grid">
+    <div class="stat reveal" data-reveal>
+      <div class="stat__num"><span data-counter="12">0</span><i>anni</i></div>
+      <div class="stat__lab">di esperienza sul campo</div>
+    </div>
+    <div class="stat reveal" data-reveal data-delay="100">
+      <div class="stat__num"><span data-counter="840">0</span><i>+</i></div>
+      <div class="stat__lab">atleti seguiti dal 2013</div>
+    </div>
+    <div class="stat reveal" data-reveal data-delay="200">
+      <div class="stat__num"><span data-counter="96">0</span><i>%</i></div>
+      <div class="stat__lab">raggiungono il loro obiettivo</div>
+    </div>
+    <div class="stat reveal" data-reveal data-delay="300">
+      <div class="stat__num"><span data-counter="4.9">0</span><i>/5</i></div>
+      <div class="stat__lab">media recensioni Google</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ABOUT ============== -->
+<section class="about section" id="about">
+  <div class="section__head reveal" data-reveal>
+    <div class="eyebrow"><span class="eyebrow__bar"></span>Lo studio</div>
+    <h2 class="section__title">Allenare è un mestiere<br/><i>di precisione</i>.</h2>
+  </div>
+
+  <div class="about__grid">
+    <div class="about__media reveal" data-reveal>
+      <div class="about__portrait">
+        <svg viewBox="0 0 320 380" class="portrait" aria-hidden="true">
+          <defs>
+            <clipPath id="portraitClip">
+              <path d="M20 60 Q160 0 300 60 L300 320 Q160 380 20 320 Z"/>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#portraitClip)">
+            <rect width="320" height="380" fill="var(--surface-2)"/>
+            <!-- abstract athlete silhouette -->
+            <circle cx="160" cy="125" r="48" fill="var(--accent)"/>
+            <path d="M80 380 Q80 230 160 200 Q240 230 240 380 Z" fill="var(--accent)"/>
+            <path d="M160 200 L140 280 L120 380" stroke="var(--bg)" stroke-width="6" fill="none"/>
+            <path d="M160 200 L180 280 L200 380" stroke="var(--bg)" stroke-width="6" fill="none"/>
+            <path d="M115 220 L70 290" stroke="var(--accent)" stroke-width="22" stroke-linecap="round" fill="none"/>
+            <path d="M205 220 L250 290" stroke="var(--accent)" stroke-width="22" stroke-linecap="round" fill="none"/>
+          </g>
+          <path d="M20 60 Q160 0 300 60 L300 320 Q160 380 20 320 Z" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        </svg>
+        <div class="about__signature">
+          <svg viewBox="0 0 200 60" aria-hidden="true">
+            <path d="M10 40 C 20 10, 40 50, 60 20 S 100 40, 130 25 S 180 35, 195 25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>Marco Conti · NSCA-CPT</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about__copy">
+      <p class="reveal" data-reveal>
+        Mi chiamo <strong>Marco Conti</strong>. Dal 2013 alleno persone normali
+        che vogliono risultati seri: forza, postura, energia, un corpo che
+        funziona bene e tiene il passo della vita.
+      </p>
+      <p class="reveal" data-reveal data-delay="120">
+        Non vendo miracoli. Vendo <em>programmazione</em>: misurare, allenare,
+        recuperare, ripetere. Ogni atleta è un esperimento di un campione solo.
+        Il mio lavoro è leggere quel campione e farlo migliorare ogni settimana.
+      </p>
+
+      <ul class="creds">
+        <li class="reveal" data-reveal data-delay="200">
+          <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M12 2 15 9 22 9.5 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.5 9 9 Z" fill="currentColor"/></svg>
+          NSCA-CPT · Strength & Conditioning Specialist
+        </li>
+        <li class="reveal" data-reveal data-delay="280">
+          <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M3 12 L10 19 L21 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          FMS Level 2 · Movement Screen
+        </li>
+        <li class="reveal" data-reveal data-delay="360">
+          <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+          Precision Nutrition · Lv.1
+        </li>
+        <li class="reveal" data-reveal data-delay="440">
+          <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M4 20 L12 4 L20 20 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          Ex preparatore atletico squadra LBA U18
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== METHOD ============== -->
+<section class="method section" id="method">
+  <div class="section__head reveal" data-reveal>
+    <div class="eyebrow"><span class="eyebrow__bar"></span>Il metodo APEX</div>
+    <h2 class="section__title">Quattro fasi.<br/><i>Zero scuse</i>.</h2>
+  </div>
+
+  <ol class="method__timeline">
+    <li class="step reveal" data-reveal>
+      <div class="step__num">01</div>
+      <div class="step__body">
+        <h3>Assessment</h3>
+        <p>Valutazione posturale, FMS, anamnesi, obiettivi. Capiamo dove sei davvero. 60 minuti, niente formule da Excel.</p>
+      </div>
+      <svg viewBox="0 0 80 80" class="step__shape" aria-hidden="true">
+        <polygon points="40,5 75,25 75,55 40,75 5,55 5,25" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="40" cy="40" r="8" fill="currentColor"/>
+      </svg>
+    </li>
+    <li class="step reveal" data-reveal data-delay="120">
+      <div class="step__num">02</div>
+      <div class="step__body">
+        <h3>Design</h3>
+        <p>Programmazione mensile su misura: forza, condizione, mobilità, recupero. Ogni esercizio ha un perché.</p>
+      </div>
+      <svg viewBox="0 0 80 80" class="step__shape" aria-hidden="true">
+        <polygon points="40,5 75,25 75,55 40,75 5,55 5,25" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M28 50 L40 25 L52 50 Z" fill="currentColor"/>
+      </svg>
+    </li>
+    <li class="step reveal" data-reveal data-delay="240">
+      <div class="step__num">03</div>
+      <div class="step__body">
+        <h3>Execute</h3>
+        <p>Allenamenti 1:1 o online con video-coaching. Tecnica prima, intensità dopo. App per loggare tutto.</p>
+      </div>
+      <svg viewBox="0 0 80 80" class="step__shape" aria-hidden="true">
+        <polygon points="40,5 75,25 75,55 40,75 5,55 5,25" fill="none" stroke="currentColor" stroke-width="2"/>
+        <rect x="30" y="30" width="20" height="20" fill="currentColor" transform="rotate(45 40 40)"/>
+      </svg>
+    </li>
+    <li class="step reveal" data-reveal data-delay="360">
+      <div class="step__num">04</div>
+      <div class="step__body">
+        <h3>Iterate</h3>
+        <p>Misuriamo ogni 4 settimane. Quel che funziona scala, quel che non funziona muore. La programmazione è viva.</p>
+      </div>
+      <svg viewBox="0 0 80 80" class="step__shape" aria-hidden="true">
+        <polygon points="40,5 75,25 75,55 40,75 5,55 5,25" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M28 40 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0" fill="none" stroke="currentColor" stroke-width="3"/>
+        <path d="M48 30 L54 28 L52 34" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+    </li>
+  </ol>
+</section>
+
+<!-- ============== SERVICES (hex grid) ============== -->
+<section class="services section" id="services">
+  <div class="section__head reveal" data-reveal>
+    <div class="eyebrow"><span class="eyebrow__bar"></span>Servizi</div>
+    <h2 class="section__title">Sei modi<br/>per <i>fare sul serio</i>.</h2>
+  </div>
+
+  <div class="services__grid">
+    <article class="svc reveal" data-reveal tabindex="0"
+      data-svc-title="Personal Training 1:1"
+      data-svc-desc="Allenamenti individuali in studio a Milano. 60 minuti di lavoro mirato, attrezzatura premium, zero distrazioni. Ideale per ricomposizione corporea, preparazione atletica, ritorno da infortunio."
+      data-svc-bullets="Sessioni 60 min · max 4 al giorno|Programmazione settimanale|Video analisi della tecnica|Report mensile dei progressi">
+      <div class="svc__shape">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="currentColor" opacity="0.06" class="svc__shape-fill"/>
+        </svg>
+      </div>
+      <svg viewBox="0 0 24 24" class="svc__icon" aria-hidden="true"><path d="M6.5 6.5 L2 11 4 13 8.5 8.5 M17.5 17.5 L22 13 20 11 15.5 15.5 M9 9 L15 15 M11 7 L17 13 M7 11 L13 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      <h3>1:1 in studio</h3>
+      <p>Allenamenti individuali a Milano. Tecnica, forza, condizione. Niente filtri.</p>
+      <span class="svc__more">Scopri <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </article>
+
+    <article class="svc reveal" data-reveal data-delay="80" tabindex="0"
+      data-svc-title="Coaching Online"
+      data-svc-desc="Programmazione personalizzata e video-coaching ovunque tu sia. Ogni 2 settimane aggiorniamo la scheda in base ai tuoi feedback e ai dati raccolti nell'app."
+      data-svc-bullets="App dedicata con video di ogni esercizio|Aggiornamento bisettimanale|Call mensile da 45 min|Chat WhatsApp 5/7">
+      <div class="svc__shape">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="currentColor" opacity="0.06" class="svc__shape-fill"/>
+        </svg>
+      </div>
+      <svg viewBox="0 0 24 24" class="svc__icon" aria-hidden="true"><rect x="3" y="5" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 10l4-2v8l-4-2z" fill="currentColor"/></svg>
+      <h3>Online</h3>
+      <p>Schede su misura, video-feedback, app dedicata. Ovunque sei, c'è programma.</p>
+      <span class="svc__more">Scopri <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </article>
+
+    <article class="svc reveal" data-reveal data-delay="160" tabindex="0"
+      data-svc-title="Nutrizione & Composizione"
+      data-svc-desc="Linee guida nutrizionali calibrate sul tuo metabolismo e i tuoi obiettivi. Niente diete da fame, niente integratori magici. Equilibrio sostenibile."
+      data-svc-bullets="Stima fabbisogno e macronutrienti|Piano flessibile a settimane|Educazione alimentare|Misurazioni quindicinali">
+      <div class="svc__shape">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="currentColor" opacity="0.06" class="svc__shape-fill"/>
+        </svg>
+      </div>
+      <svg viewBox="0 0 24 24" class="svc__icon" aria-hidden="true"><path d="M12 2 C 6 8, 6 14, 12 22 C 18 14, 18 8, 12 2 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 11 V 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <h3>Nutrizione</h3>
+      <p>Macro, abitudini, ricomposizione. Cibo come strumento, non nemico.</p>
+      <span class="svc__more">Scopri <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </article>
+
+    <article class="svc reveal" data-reveal data-delay="240" tabindex="0"
+      data-svc-title="Mobility & Prehab"
+      data-svc-desc="Sessioni dedicate a mobilità, controllo motorio e prevenzione infortuni. Per chi sta seduto 8 ore al giorno e vuole tornare a muoversi come a 20 anni."
+      data-svc-bullets="Screening FMS completo|Routine mobility 15 min/giorno|Protocollo anti-mal di schiena|Lavoro su spalle, anche, caviglie">
+      <div class="svc__shape">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="currentColor" opacity="0.06" class="svc__shape-fill"/>
+        </svg>
+      </div>
+      <svg viewBox="0 0 24 24" class="svc__icon" aria-hidden="true"><circle cx="12" cy="5" r="2.5" fill="currentColor"/><path d="M12 8 V 14 M 9 11 L 12 14 L 15 11 M 9 21 L 12 14 L 15 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <h3>Mobility</h3>
+      <p>Articolazioni libere, postura solida. Prevenire prima di curare.</p>
+      <span class="svc__more">Scopri <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </article>
+
+    <article class="svc reveal" data-reveal data-delay="320" tabindex="0"
+      data-svc-title="Sport Performance"
+      data-svc-desc="Programmazione atletica per sport di squadra e individuali. Forza specifica, potenza, agilità, condizione. Calendario allineato alla stagione agonistica."
+      data-svc-bullets="Test forza, velocità, salto|Periodizzazione stagionale|Lavoro pre e post-gara|Return-to-play da infortunio">
+      <div class="svc__shape">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="currentColor" opacity="0.06" class="svc__shape-fill"/>
+        </svg>
+      </div>
+      <svg viewBox="0 0 24 24" class="svc__icon" aria-hidden="true"><path d="M5 15 L9 11 L13 14 L19 6 M19 6 H 14 M 19 6 V 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <h3>Performance</h3>
+      <p>Forza, potenza, velocità. Per chi gioca per vincere, dal weekend al pro.</p>
+      <span class="svc__more">Scopri <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </article>
+
+    <article class="svc reveal" data-reveal data-delay="400" tabindex="0"
+      data-svc-title="Small Group (max 4)"
+      data-svc-desc="Allenamenti in mini-gruppi di livello omogeneo. L'energia del gruppo, la cura del 1:1. Ottimo per studenti, gruppi di amici, colleghi."
+      data-svc-bullets="Massimo 4 atleti per sessione|Programma di gruppo, scheda individuale|Costo per persona ridotto|Slot fisso settimanale">
+      <div class="svc__shape">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="60,8 108,34 108,86 60,112 12,86 12,34" fill="currentColor" opacity="0.06" class="svc__shape-fill"/>
+        </svg>
+      </div>
+      <svg viewBox="0 0 24 24" class="svc__icon" aria-hidden="true"><circle cx="9" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 20 q 6 -6 12 0 M 13 20 q 6 -6 8 -2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      <h3>Small Group</h3>
+      <p>Energia di gruppo, scheda individuale. Ottimo per studenti e team.</p>
+      <span class="svc__more">Scopri <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </article>
+  </div>
+</section>
+
+<!-- ============== PROGRAMS / PRICING ============== -->
+<section class="programs section" id="programs">
+  <div class="section__head reveal" data-reveal>
+    <div class="eyebrow"><span class="eyebrow__bar"></span>Programmi</div>
+    <h2 class="section__title">Scegli il <i>livello</i><br/>del tuo impegno.</h2>
+  </div>
+
+  <div class="prog__toggle reveal" data-reveal>
+    <span>Mensile</span>
+    <button class="switch" id="billingSwitch" role="switch" aria-checked="false" aria-label="Cambia frequenza fatturazione">
+      <span class="switch__thumb"></span>
+    </button>
+    <span>Trimestrale <em class="badge-save">−15%</em></span>
+  </div>
+
+  <div class="prog__grid">
+    <article class="plan reveal" data-reveal>
+      <header class="plan__head">
+        <h3>Start</h3>
+        <p>Per chi inizia con il piede giusto.</p>
+      </header>
+      <div class="plan__price">
+        <span class="plan__currency">€</span>
+        <span class="plan__amount" data-price-m="89" data-price-q="76">89</span>
+        <span class="plan__period">/mese</span>
+      </div>
+      <ul class="plan__feat">
+        <li><span class="check"></span>Scheda online aggiornata mensilmente</li>
+        <li><span class="check"></span>App con video di ogni esercizio</li>
+        <li><span class="check"></span>Check-in mensile via video</li>
+        <li><span class="check"></span>Linee guida nutrizione di base</li>
+        <li><span class="check check--off"></span>Sessioni 1:1 in studio</li>
+        <li><span class="check check--off"></span>Supporto WhatsApp 7/7</li>
+      </ul>
+      <button class="btn btn--ghost btn--block plan__cta" data-plan="Start" data-plan-price="89">Inizia da Start</button>
+    </article>
+
+    <article class="plan plan--featured reveal" data-reveal data-delay="120">
+      <div class="plan__ribbon">PIÙ SCELTO</div>
+      <header class="plan__head">
+        <h3>Build</h3>
+        <p>Il programma per fare sul serio.</p>
+      </header>
+      <div class="plan__price">
+        <span class="plan__currency">€</span>
+        <span class="plan__amount" data-price-m="189" data-price-q="161">189</span>
+        <span class="plan__period">/mese</span>
+      </div>
+      <ul class="plan__feat">
+        <li><span class="check"></span>Scheda aggiornata ogni 2 settimane</li>
+        <li><span class="check"></span>Piano nutrizione su misura</li>
+        <li><span class="check"></span>1 call mensile da 45 min</li>
+        <li><span class="check"></span>Video-feedback tecnica</li>
+        <li><span class="check"></span>Supporto WhatsApp 5/7</li>
+        <li><span class="check check--off"></span>Sessioni 1:1 in studio</li>
+      </ul>
+      <button class="btn btn--primary btn--block plan__cta btn--magnetic" data-plan="Build" data-plan-price="189">Scelgo Build</button>
+    </article>
+
+    <article class="plan reveal" data-reveal data-delay="240">
+      <header class="plan__head">
+        <h3>Elite</h3>
+        <p>Tutto incluso, niente compromessi.</p>
+      </header>
+      <div class="plan__price">
+        <span class="plan__currency">€</span>
+        <span class="plan__amount" data-price-m="349" data-price-q="297">349</span>
+        <span class="plan__period">/mese</span>
+      </div>
+      <ul class="plan__feat">
+        <li><span class="check"></span>4 sessioni 1:1 in studio o video</li>
+        <li><span class="check"></span>Programmazione settimanale</li>
+        <li><span class="check"></span>Piano nutrizione personalizzato</li>
+        <li><span class="check"></span>Mobility e recovery dedicati</li>
+        <li><span class="check"></span>Supporto WhatsApp 7/7</li>
+        <li><span class="check"></span>Test composizione corporea mensile</li>
+      </ul>
+      <button class="btn btn--ghost btn--block plan__cta" data-plan="Elite" data-plan-price="349">Vai Elite</button>
+    </article>
+  </div>
+</section>
+
+<!-- ============== RESULTS / TRANSFORMATIONS ============== -->
+<section class="results section" id="results">
+  <div class="section__head reveal" data-reveal>
+    <div class="eyebrow"><span class="eyebrow__bar"></span>Risultati</div>
+    <h2 class="section__title">Le persone parlano<br/>con i <i>numeri</i>.</h2>
+  </div>
+
+  <div class="ba reveal" data-reveal>
+    <div class="ba__viewer" id="baViewer">
+      <div class="ba__side ba__side--before">
+        <svg viewBox="0 0 600 400" class="ba__svg" aria-hidden="true">
+          <rect width="600" height="400" fill="#1c1d22"/>
+          <g opacity="0.7">
+            <circle cx="300" cy="150" r="46" fill="#444"/>
+            <path d="M220 400 Q 220 230 300 210 Q 380 230 380 400 Z" fill="#444"/>
+          </g>
+          <text x="30" y="50" fill="#fff" font-family="Anton" font-size="34">PRIMA</text>
+          <text x="30" y="370" fill="#999" font-family="Inter" font-size="14">peso 88kg · grasso 26%</text>
+        </svg>
+      </div>
+      <div class="ba__side ba__side--after">
+        <svg viewBox="0 0 600 400" class="ba__svg" aria-hidden="true">
+          <rect width="600" height="400" fill="#0e1410"/>
+          <g>
+            <circle cx="300" cy="150" r="44" fill="#d8ff36"/>
+            <path d="M232 400 Q 232 226 300 200 Q 368 226 368 400 Z" fill="#d8ff36"/>
+            <path d="M300 200 L 285 280 L 270 400 M 300 200 L 315 280 L 330 400" stroke="#0a0b0d" stroke-width="6"/>
+          </g>
+          <text x="30" y="50" fill="#d8ff36" font-family="Anton" font-size="34">DOPO 6 MESI</text>
+          <text x="30" y="370" fill="#d8ff36" font-family="Inter" font-size="14">peso 79kg · grasso 14%</text>
+        </svg>
+      </div>
+      <div class="ba__handle" id="baHandle" role="slider" tabindex="0" aria-label="Confronta prima e dopo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <span class="ba__handle-grip">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 L4 12 L9 18 M15 6 L20 12 L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </span>
+      </div>
+    </div>
+    <p class="ba__caption">Trascina · clicca · usa frecce ← →</p>
+  </div>
+
+  <div class="testimonials reveal" data-reveal data-delay="160">
+    <div class="t-track" id="tTrack" aria-live="polite">
+      <article class="t-card active">
+        <div class="t-quote">“</div>
+        <p>Pensavo di essere a posto, in 4 mesi ho aggiunto 22kg di stacco e perso una taglia di pantaloni. Marco non ti molla finché non capisci il <em>perché</em> di ogni cosa.”</p>
+        <footer><strong>Andrea V.</strong> · 34 anni · manager</footer>
+      </article>
+      <article class="t-card">
+        <div class="t-quote">“</div>
+        <p>Dopo il parto avevo perso completamente il mio corpo. APEX mi ha ridato forza, postura, e il piacere di muovermi. È un investimento, non un costo.”</p>
+        <footer><strong>Giulia M.</strong> · 31 anni · architetto</footer>
+      </article>
+      <article class="t-card">
+        <div class="t-quote">“</div>
+        <p>Gioco a basket in C Gold. Da quando seguo la programmazione di Marco salto più alto, mi infortuno meno, recupero meglio. Solo numeri, nessuna magia.”</p>
+        <footer><strong>Luca P.</strong> · 26 anni · atleta</footer>
+      </article>
+      <article class="t-card">
+        <div class="t-quote">“</div>
+        <p>Mi alleno online da Berlino. Schede impeccabili, video-feedback chirurgico. La distanza non si sente proprio.”</p>
+        <footer><strong>Sara T.</strong> · 29 anni · designer</footer>
+      </article>
+    </div>
+    <div class="t-controls">
+      <button class="btn btn--ghost btn--icon" id="tPrev" aria-label="Precedente">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="t-dots" id="tDots"></div>
+      <button class="btn btn--ghost btn--icon" id="tNext" aria-label="Successivo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== BOOKING ============== -->
+<section class="booking section" id="booking">
+  <div class="section__head reveal" data-reveal>
+    <div class="eyebrow"><span class="eyebrow__bar"></span>Prenota</div>
+    <h2 class="section__title">Prima call <i>gratuita</i>.<br/>20 minuti, zero impegno.</h2>
+  </div>
+
+  <div class="booking__grid">
+    <form class="booking__form reveal" data-reveal id="bookingForm" novalidate>
+      <div class="field">
+        <label for="bName">Nome</label>
+        <input id="bName" name="name" required minlength="2" autocomplete="given-name" placeholder="Mario Rossi"/>
+        <span class="field__line"></span>
+      </div>
+
+      <div class="field">
+        <label for="bEmail">Email</label>
+        <input id="bEmail" name="email" type="email" required autocomplete="email" placeholder="mario@dominio.it"/>
+        <span class="field__line"></span>
+      </div>
+
+      <div class="field">
+        <label for="bPhone">Telefono <em>(opzionale)</em></label>
+        <input id="bPhone" name="phone" type="tel" autocomplete="tel" placeholder="+39 ..."/>
+        <span class="field__line"></span>
+      </div>
+
+      <fieldset class="field field--choices">
+        <legend>Obiettivo principale</legend>
+        <div class="chips" role="radiogroup">
+          <label class="chip"><input type="radio" name="goal" value="ricomposizione" required/> <span>Ricomposizione</span></label>
+          <label class="chip"><input type="radio" name="goal" value="forza"/> <span>Forza</span></label>
+          <label class="chip"><input type="radio" name="goal" value="performance"/> <span>Performance</span></label>
+          <label class="chip"><input type="radio" name="goal" value="mobility"/> <span>Postura / Mobility</span></label>
+          <label class="chip"><input type="radio" name="goal" value="ricomincio"/> <span>Riprendo da zero</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field field--choices">
+        <legend>Dove ti alleni</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="mode" value="studio" required/> <span>In studio · Milano</span></label>
+          <label class="chip"><input type="radio" name="mode" value="online"/> <span>Online</span></label>
+          <label class="chip"><input type="radio" name="mode" value="ibrido"/> <span>Ibrido</span></label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="bNote">Qualcosa di te <em>(opzionale)</em></label>
+        <textarea id="bNote" name="note" rows="3" placeholder="Esperienza, infortuni, vincoli orari, sport praticati..."></textarea>
+        <span class="field__line"></span>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--lg btn--block btn--magnetic" id="bookingSubmit">
+        <span class="btn__label">Prenota la call gratuita</span>
+        <span class="btn__loading"><span class="dot-loading"></span><span class="dot-loading"></span><span class="dot-loading"></span></span>
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <p class="booking__legal">Inviando accetti la <a href="#">privacy policy</a>. Risposta entro 24h lavorative.</p>
+    </form>
+
+    <aside class="booking__side reveal" data-reveal data-delay="120">
+      <div class="info">
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M12 22s-7-6-7-12a7 7 0 1 1 14 0c0 6-7 12-7 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg>
+        <div>
+          <div class="info__lab">Studio</div>
+          <div class="info__val">Via Tortona 27, Milano</div>
+        </div>
+      </div>
+      <div class="info">
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        <div>
+          <div class="info__lab">Orari</div>
+          <div class="info__val">Lun–Ven 7:00–21:00 · Sab 9:00–14:00</div>
+        </div>
+      </div>
+      <div class="info">
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M4 6 L 12 13 L 20 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        <div>
+          <div class="info__lab">Scrivimi</div>
+          <div class="info__val"><a href="mailto:marco@apex-studio.it">marco@apex-studio.it</a></div>
+        </div>
+      </div>
+
+      <div class="hint">
+        <strong>Non vuoi compilare il form?</strong><br/>
+        Apri <button class="link-btn" id="hintChat">Coach AI</button> in basso a destra e chiedi “prenota una call”. Ti aiuto io a fissarla.
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section class="faq section" id="faq">
+  <div class="section__head reveal" data-reveal>
+    <div class="eyebrow"><span class="eyebrow__bar"></span>FAQ</div>
+    <h2 class="section__title">Le domande<br/>che mi fate <i>davvero</i>.</h2>
+  </div>
+
+  <div class="faq__list">
+    <details class="qa reveal" data-reveal>
+      <summary>
+        <span>Quanto tempo prima di vedere risultati?</span>
+        <span class="qa__icon" aria-hidden="true"><span></span><span></span></span>
+      </summary>
+      <div class="qa__body">
+        <p>I primi cambiamenti (energia, sonno, postura) li senti entro 2 settimane. La trasformazione visibile arriva tra le 6 e le 12 settimane, in base a punto di partenza e aderenza al piano. Non vendo trucchi: vendo costanza misurabile.</p>
+      </div>
+    </details>
+
+    <details class="qa reveal" data-reveal data-delay="100">
+      <summary>
+        <span>Non mi sono mai allenato. Posso iniziare?</span>
+        <span class="qa__icon" aria-hidden="true"><span></span><span></span></span>
+      </summary>
+      <div class="qa__body">
+        <p>Sì, anzi: i principianti hanno il margine di miglioramento più alto. Si parte dalle basi: schema motorio, mobilità, esercizi a corpo libero. Niente sovraccarichi finché la tecnica non c'è.</p>
+      </div>
+    </details>
+
+    <details class="qa reveal" data-reveal data-delay="200">
+      <summary>
+        <span>Ho un infortunio. Posso comunque allenarmi?</span>
+        <span class="qa__icon" aria-hidden="true"><span></span><span></span></span>
+      </summary>
+      <div class="qa__body">
+        <p>Dipende. Se hai una diagnosi medica/fisioterapica, la rispettiamo e costruiamo la programmazione attorno. Se hai dolore non diagnosticato, prima si va dallo specialista, poi si torna in palestra.</p>
+      </div>
+    </details>
+
+    <details class="qa reveal" data-reveal data-delay="300">
+      <summary>
+        <span>Come funziona il coaching online?</span>
+        <span class="qa__icon" aria-hidden="true"><span></span><span></span></span>
+      </summary>
+      <div class="qa__body">
+        <p>Ricevi una scheda nell'app con video di ogni esercizio. Logghi i tuoi allenamenti, mandi video di tecnica, io ti rispondo con feedback. Una call mensile per fare il punto. Ovunque tu sia, è come se fossi qui.</p>
+      </div>
+    </details>
+
+    <details class="qa reveal" data-reveal data-delay="400">
+      <summary>
+        <span>Posso disdire?</span>
+        <span class="qa__icon" aria-hidden="true"><span></span><span></span></span>
+      </summary>
+      <div class="qa__body">
+        <p>Sempre, con 30 giorni di preavviso. Niente penali, niente catene. Se il programma non fa per te, non voglio i tuoi soldi.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <svg viewBox="0 0 40 40" class="footer__mark" aria-hidden="true">
+        <path d="M20 5 L36 34 L4 34 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M20 16 L28 32 L12 32 Z" fill="currentColor"/>
+      </svg>
+      <div>
+        <div class="footer__name">APEX</div>
+        <div class="footer__sub">Personal Training Studio</div>
+      </div>
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer">
+      <div>
+        <h4>Studio</h4>
+        <a href="#about" data-nav>Marco</a>
+        <a href="#method" data-nav>Metodo</a>
+        <a href="#services" data-nav>Servizi</a>
+      </div>
+      <div>
+        <h4>Programmi</h4>
+        <a href="#programs" data-nav>Start</a>
+        <a href="#programs" data-nav>Build</a>
+        <a href="#programs" data-nav>Elite</a>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <a href="mailto:marco@apex-studio.it">marco@apex-studio.it</a>
+        <a href="tel:+390212345678">+39 02 1234 5678</a>
+        <a href="#booking" data-nav>Prenota call</a>
+      </div>
+    </nav>
+
+    <form class="footer__news" id="newsForm" novalidate>
+      <h4>Newsletter</h4>
+      <p>Un'email al mese. Nessuno spam, solo cose utili.</p>
+      <div class="news__row">
+        <input type="email" required placeholder="la-tua@email.it" id="newsEmail" autocomplete="email"/>
+        <button type="submit" class="btn btn--primary btn--icon" aria-label="Iscriviti">
+          <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <span class="news__feedback" id="newsFeedback" aria-live="polite"></span>
+    </form>
+  </div>
+
+  <div class="footer__bottom">
+    <div>© <span id="year">2025</span> APEX Studio · P.IVA 12345670961</div>
+    <div class="socials">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9.5v5l4-2.5z" fill="currentColor"/></svg></a>
+      <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M14 4 v 10 a 4 4 0 1 1 -4 -4 M 14 4 c 0 2 2 4 5 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+      <a href="#" aria-label="Strava"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M10 3 L 4 14 H 8 L 10 9 L 12 14 H 8 M 12 14 L 14 19 L 16 14 H 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="footer__top-btn">
+      <button class="btn btn--ghost btn--icon" id="toTop" aria-label="Torna su">
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- ============== SERVICE MODAL ============== -->
+<div class="modal" id="svcModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="svcModalTitle">
+  <div class="modal__overlay" data-close></div>
+  <div class="modal__panel modal__panel--svc">
+    <button class="modal__close" aria-label="Chiudi" data-close>
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal__svc-shape" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <polygon points="100,12 180,55 180,145 100,188 20,145 20,55" fill="none" stroke="currentColor" stroke-width="2"/>
+        <polygon points="100,12 180,55 180,145 100,188 20,145 20,55" fill="currentColor" opacity="0.08"/>
+      </svg>
+    </div>
+    <h3 id="svcModalTitle">Servizio</h3>
+    <p id="svcModalDesc"></p>
+    <ul id="svcModalBullets"></ul>
+    <div class="modal__actions">
+      <a href="#booking" class="btn btn--primary btn--magnetic" data-close data-nav>Prenota call</a>
+      <button class="btn btn--ghost" data-close>Chiudi</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============== PLAN MODAL ============== -->
+<div class="modal" id="planModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="planModalTitle">
+  <div class="modal__overlay" data-close></div>
+  <div class="modal__panel">
+    <button class="modal__close" aria-label="Chiudi" data-close>
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal__check">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="3" class="check-circle"/>
+        <path d="M20 33 L29 42 L46 22" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="check-mark"/>
+      </svg>
+    </div>
+    <h3 id="planModalTitle">Hai scelto Build</h3>
+    <p id="planModalDesc">Per attivare il programma fissiamo una call gratuita di 20 minuti: capiamo se è davvero il piano giusto per te.</p>
+    <div class="modal__actions">
+      <a href="#booking" class="btn btn--primary btn--magnetic" data-close data-nav>Vai al form</a>
+      <button class="btn btn--ghost" data-close>Annulla</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============== REEL MODAL ============== -->
+<div class="modal" id="reelModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="reelTitle">
+  <div class="modal__overlay" data-close></div>
+  <div class="modal__panel modal__panel--reel">
+    <button class="modal__close" aria-label="Chiudi" data-close>
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <h3 id="reelTitle">Il metodo APEX in 4 step</h3>
+    <div class="reel">
+      <ol class="reel__steps">
+        <li><b>Assessment</b><span>Test FMS, postura, anamnesi.</span></li>
+        <li><b>Design</b><span>Programmazione mensile su misura.</span></li>
+        <li><b>Execute</b><span>Allenamenti 1:1 o online.</span></li>
+        <li><b>Iterate</b><span>Misurazioni, aggiornamento, ripeti.</span></li>
+      </ol>
+      <div class="reel__viz">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3"/>
+          <circle cx="100" cy="20" r="8" fill="currentColor" class="reel__dot reel__dot--1"/>
+          <circle cx="180" cy="100" r="8" fill="currentColor" class="reel__dot reel__dot--2"/>
+          <circle cx="100" cy="180" r="8" fill="currentColor" class="reel__dot reel__dot--3"/>
+          <circle cx="20" cy="100" r="8" fill="currentColor" class="reel__dot reel__dot--4"/>
+        </svg>
+      </div>
+    </div>
+    <div class="modal__actions">
+      <a href="#booking" class="btn btn--primary btn--magnetic" data-close data-nav>Voglio iniziare</a>
+      <button class="btn btn--ghost" data-close>Chiudi</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============== TOASTS ============== -->
+<div class="toasts" id="toasts" aria-live="polite" aria-atomic="true"></div>
+
+<!-- ============== AI CHAT ============== -->
+<div class="chat" id="chat" aria-live="polite">
+  <button class="chat__fab" id="chatFab" aria-label="Apri Coach AI" aria-expanded="false">
+    <span class="chat__fab-pulse"></span>
+    <svg viewBox="0 0 24 24" class="chat__fab-icon chat__fab-icon--open" aria-hidden="true">
+      <path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-7a8 8 0 0 1 8-8h2a8 8 0 0 1 8 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="9" cy="12" r="1.2" fill="currentColor"/>
+      <circle cx="13" cy="12" r="1.2" fill="currentColor"/>
+      <circle cx="17" cy="12" r="1.2" fill="currentColor"/>
+    </svg>
+    <svg viewBox="0 0 24 24" class="chat__fab-icon chat__fab-icon--close" aria-hidden="true">
+      <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="chat__fab-label">Coach AI</span>
+  </button>
+
+  <div class="chat__panel" id="chatPanel" aria-hidden="true" role="dialog" aria-label="Chat con Coach AI">
+    <header class="chat__head">
+      <div class="chat__avatar">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 5 L36 34 L4 34 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M20 16 L28 32 L12 32 Z" fill="currentColor"/>
+        </svg>
+        <span class="chat__avatar-dot"></span>
+      </div>
+      <div class="chat__head-text">
+        <div class="chat__head-name">Coach AI <span class="chat__head-tag">APEX</span></div>
+        <div class="chat__head-status" id="chatStatus">online · risponde in tempo reale</div>
+      </div>
+      <button class="chat__head-btn" id="chatClear" title="Nuova conversazione" aria-label="Nuova conversazione">
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="chat__head-btn" id="chatClose" title="Chiudi" aria-label="Chiudi">
+        <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <div class="chat__msgs" id="chatMsgs" tabindex="0"></div>
+
+    <div class="chat__suggestions" id="chatSuggestions">
+      <button class="suggestion" data-prompt="Sono principiante, da dove inizio?">Da dove inizio?</button>
+      <button class="suggestion" data-prompt="Suggeriscimi uno split 4 giorni per ipertrofia">Split 4 giorni</button>
+      <button class="suggestion" data-prompt="Quanti grammi di proteine al giorno per un uomo di 75kg?">Quante proteine?</button>
+      <button class="suggestion" data-prompt="Mi fa male la zona lombare quando faccio stacco, cosa controllo?">Mal di schiena nello stacco</button>
+      <button class="suggestion" data-prompt="Voglio prenotare una call con Marco">Prenota call</button>
+    </div>
+
+    <form class="chat__form" id="chatForm" autocomplete="off">
+      <div class="chat__input-wrap">
+        <textarea
+          id="chatInput"
+          placeholder="Chiedimi di fitness, nutrizione, prenotazioni..."
+          rows="1"
+          maxlength="2000"
+          aria-label="Scrivi un messaggio"
+        ></textarea>
+        <button type="submit" class="chat__send" id="chatSend" aria-label="Invia">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20 L 21 12 L 3 4 L 7 12 Z" fill="currentColor"/></svg>
+        </button>
+      </div>
+      <div class="chat__hint">
+        <span><kbd>Invio</kbd> per inviare · <kbd>Shift</kbd>+<kbd>Invio</kbd> per andare a capo</span>
+        <span class="chat__powered">Powered by Claude</span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/main.js" type="module"></script>
+</body>
+</html>
