@@ -1,86 +1,31 @@
 # APEX — Personal Training Studio
 
-Sito web one-page per un personal trainer, con animazioni fluide,
-forme organiche, design dark+lime e un assistente AI ("Coach AI")
-collegato all'API di Claude.
+Sito web one-page per un personal trainer, tutto in un **unico file**
+`index.html` da aprire con doppio click. Niente server, niente install.
 
-## Stack
+## Come si usa
 
-- **Backend**: Node.js + Express, endpoint `/api/chat` con streaming SSE
-- **Frontend**: HTML/CSS/JS vanilla, niente framework, niente build step
-- **AI**: `@anthropic-ai/sdk` con prompt caching sul system prompt
+1. Apri `index.html` nel browser.
+2. Clicca l'icona 🔑 nella chat "Coach AI" in basso a destra.
+3. Incolla la tua API key Anthropic (crea quella su
+   <https://console.anthropic.com/settings/keys>).
+4. Fatto. La key resta solo nel tuo browser (localStorage).
 
-## Setup
+## Cosa c'è dentro
 
-```bash
-# 1. Installa dipendenze
-npm install
+- Hero animato, marquee, blob SVG morphing, parallax mouse
+- 6 servizi (modale dettaglio) · 3 piani con switch mensile/trimestrale
+- Slider before/after (drag, click, touch, tastiera)
+- Carousel testimonianze (auto + manuale + swipe)
+- Form prenotazione con validazione + feedback toast
+- FAQ accordion · newsletter · footer completo · torna-su
+- Toggle tema scuro/chiaro
+- **Coach AI**: chat con streaming, suggerimenti rapidi, persistenza,
+  collegata direttamente all'API Claude (modello Haiku 4.5)
 
-# 2. Copia env e inserisci la tua chiave Anthropic
-cp .env.example .env
-#  → poi apri .env e incolla la tua ANTHROPIC_API_KEY
+## Tweaks rapidi (cerca dentro `index.html`)
 
-# 3. Avvia
-npm start
-```
-
-Sito su [http://localhost:3000](http://localhost:3000).
-
-Senza API key il sito funziona comunque (animazioni, form, modal),
-ma la chat AI risponde con un avviso di configurazione mancante.
-
-## Cosa funziona
-
-**Bottoni e interazioni (~30):**
-- Menu nav con scroll smooth + sezione attiva
-- Drawer mobile (burger animato)
-- CTA hero + "Guarda il metodo" (apre modale)
-- Toggle tema scuro/chiaro (persistente)
-- Switch fatturazione mensile/trimestrale (prezzi animati)
-- 6 card servizi → modal dettaglio per ciascuna
-- 3 piani → modal di conferma per ciascuno
-- Before/After slider (drag, click, touch, tastiera)
-- Carousel testimonianze (auto + manuale + swipe + tastiera)
-- Accordion FAQ (5 voci)
-- Form di prenotazione con validazione e feedback toast
-- Newsletter con validazione email
-- Coach AI: apri/chiudi, suggerimenti rapidi, invio, streaming,
-  nuova conversazione, persistenza in localStorage
-- Bottone torna-su
-- Magnetic buttons (CTA)
-- Tilt 3D al hover su card
-
-**Animazioni:**
-- Loader iniziale con bar che si riempie e "APEX" che si colora
-- Hero: parole che salgono in stagger
-- Blob SVG morphing + ring rotanti + parallax mouse
-- Counter animati on-view
-- Reveal on-scroll con delay scalettati
-- Marquee infinita
-- Modal con scale+blur backdrop
-- Toast slide-in
-- Chat: bubble in, typing dots, cursore lampeggiante, stream
-
-## Struttura
-
-```
-.
-├── server.js                # Express + /api/chat
-├── package.json
-├── .env.example
-└── public/
-    ├── index.html
-    ├── css/style.css
-    └── js/
-        ├── main.js          # tutto tranne chat
-        └── chat.js          # modulo chat AI
-```
-
-## Personalizzazione veloce
-
-- **Brand / coach**: cerca "APEX", "Marco Conti" in `public/index.html`.
-- **Colori**: token CSS in `:root` dentro `public/css/style.css`
-  (variabile principale: `--accent` per il lime).
-- **System prompt Coach AI**: costante `SYSTEM_PROMPT` in `server.js`.
-- **Modello AI**: `claude-haiku-4-5-20251001` in `server.js`,
-  cambiabile in qualsiasi modello Anthropic disponibile.
+- Brand / coach: cerca `APEX` e `Marco Conti`
+- Colori: token CSS in `:root` (variabile principale `--accent`)
+- System prompt Coach AI: costante `SYSTEM_PROMPT` nello script
+- Modello: costante `MODEL` (es. `claude-haiku-4-5-20251001`)
